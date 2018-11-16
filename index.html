@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Floppy Fish</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>  
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/builds.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content" id="hide">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Floppy Fish</div>
+      </div>
+    </div>
+    <script>
+       (function(){
+  //I get the element
+  var divElem=document.getElementById('hide');
+  //I set css display to none so it is not become visible
+  divElem.style.display='none';
+  //Via if condition I check the readystate status
+   if (document.readyState === 'loading') {
+   //If loading I set the following function to trigger when it becomes complete
+   document.onreadystatechange=function(){
+      if (document.readyState === 'complete') {
+   //When it becomes complete the it triggers the setTimeout function (time set=3000ms)
+      setTimeout(function(){
+   //After the time is passed then I change the css display to block that appears the elements
+      divElem.style.display='block';         
+               
+     }, 3000);
+     }
+     };
+   }    
+     
+  })();   
+    </script>
+  </body>
+</html>
